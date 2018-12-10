@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>GroupSettingController</string>
+	<string>GroupTypeController</string>
+	<string>CreateGroupController</string>
+	<string>SettingChatUserInfoController</string>
+	<string>CommentDetailController</string>
+	<string>EditUserInfoController</string>
+	<string>MessageController</string>
+	<string>PublishController</string>
+	<string>MoodDetailController</string>
+	<string>BlackListController</string>
+	<string>SettingController</string>
+	<string>MineController</string>
+	<string>SearchController</string>
+	<string>SelectCityController</string>
+	<string>ApplyJoinGroupController</string>
+	<string>GroupListController</string>
+	<string>GroupInfoController</string>
+	<string>UserInfoController</string>
+	<string>MatchController</string>
+	<string>HomeController</string>
+	<string>FillLocationController</string>
+	<string>FillUserNameController</string>
+	<string>LoginController</string>
+</array>
+</plist>

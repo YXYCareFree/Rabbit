@@ -1,0 +1,131 @@
+//
+//  YouTo.pch
+//  YouTo
+//
+//  Created by apple on 2018/11/6.
+//  Copyright © 2018年 apple. All rights reserved.
+//
+
+#ifndef YouTo_pch
+#define YouTo_pch
+
+#import "UIViewController+Extension.h"
+#import "Masonry.h"
+#import "UIColor+Helper.h"
+#import "UIView+Helper.h"
+#import "MBProgressHUD+Helper.h"
+#import "YXYButton.h"
+#import "YXYLabel.h"
+#import "YouToRequestClient.h"
+#import "UIImageView+WebCache.h"
+#import "YXYAlertView.h"
+
+typedef NS_ENUM(NSUInteger, CityContentType) {
+    CityContentTypeMood,
+    CityContentTypeHelp,
+    CityContentTypeNews,
+    CityContentTypeTypeStrategy,
+};
+
+typedef void(^YXYCompletionBlock)(BOOL success, id response);
+
+#ifdef DEBUG
+#define NSLog(format, ...) do {                                           \
+fprintf(stderr,"[%s] <%s:%d> %s\t%s\n\n", __TIME__, [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, __FUNCTION__, [[NSString stringWithFormat:format, ##__VA_ARGS__] UTF8String]);                                                       \
+} while (0)
+#else
+#define NSLog(...)
+#endif
+//
+//#define BASE_URL      @"http://75aek4.natappfree.cc/"  http://test.moxiaoheng.com:9080/swagger-ui.html#/
+#define BASE_URL      @"http://test.moxiaoheng.com:9080/"
+#define API_VERSION   @"V1.0.0"
+
+#define URLWithStr(x)      [NSURL URLWithString:x]
+#define kScreenWidth       [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight      [UIScreen mainScreen].bounds.size.height
+
+#define SelfVC         self.vc
+#define Interactor     self.interactor
+#define Self_View      self.view
+#define WEAKSELF           typeof(self) __weak weakSelf = self;
+#define RequestClient   [YouToRequestClient shareClient]
+
+#define LocalizedString(key) [[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]
+
+#define KEY_WINDOW [UIApplication sharedApplication].delegate.window
+#define CurrentVC  [UIViewController getCurrentViewController]
+#define PushVC(x)   [CurrentVC.navigationController pushViewController:x animated:YES];
+//if ([CurrentVC isKindOfClass:[UIViewController class]]) {   \
+//                         [CurrentVC.navigationController pushViewController:x animated:YES]; \
+//                   }    \
+
+#define PushVCWithClassName(x)  [CurrentVC.navigationController pushViewController:[NSClassFromString(x) new] animated:YES];
+//if ([CurrentVC isKindOfClass:[UIViewController class]]) {   \
+//[CurrentVC.navigationController pushViewController:[NSClassFromString(x) new] animated:YES]; \
+//}    \
+
+
+#pragma mark Tag
+#define Tag_CityChange   100//选择城市页面
+#define Tag_InputField   200//自定义输入框
+#define Tag_Photo        300//六宫格展示的图片
+#define Tag_City_Category 400
+#define Tag_Match         500
+#define Tag_Match_Filter         600
+
+#pragma mark--字体
+#define Font_PingFang_Bold(x) [UIFont fontWithName:@"PingFangSC-Semibold" size:x]
+#define Font_PingFang_Medium(x) [UIFont fontWithName:@"PingFangSC-Medium" size:x]
+#define Font(x) [UIFont systemFontOfSize:x]
+
+#pragma mark--颜色
+#define ColorWithHex(x) [UIColor colorFromHex:x]
+
+#define  WhiteColor  UIColor.whiteColor
+#define Color_Main ColorWithHex(@"2febeb")
+#define Color_E ColorWithHex(@"eeeeee")
+#define Color_3 ColorWithHex(@"333333")
+#define Color_D ColorWithHex(@"dddddd")
+#define Color_6 ColorWithHex(@"666666")
+#define Color_9 ColorWithHex(@"999999")
+#define Color_C ColorWithHex(@"cccccc")
+
+#define LoadImageWithName(x) [UIImage imageNamed:x]
+#define PlaceHolderImage  LoadImageWithName(@"placeholder")
+#define PlaceHolderImage_City  LoadImageWithName(@"city_default")
+
+#pragma mark  UserDefaults
+#define UserDefaults [NSUserDefaults standardUserDefaults]
+#define AccessToken  @"AccessToken"
+#define Adcode       @"Adcode"
+#define City         @"city"
+#define GetAdcode    [UserDefaults objectForKey:Adcode]?:@"330110" //当前城市地理编码
+#define GetCity      [UserDefaults objectForKey:@"city"]?:@"杭州"//当前的城市
+#define IsInstallWX  [[UserDefaults objectForKey:@"isInatallWX"] boolValue]
+#define IsPosition   @"IsPosition"//YES是定位获取的adcode  NO是选择的adcode
+
+#pragma mark 通知
+#define Notifi(notifiName, ob, info)                      [[NSNotificationCenter defaultCenter] postNotificationName:notifiName object:ob userInfo:info];
+#define AddNotifiObserver(observer, selName, notifiName, params)     [[NSNotificationCenter defaultCenter] addObserver:observer selector:NSSelectorFromString(selName) name:notifiName object:params];
+#define RemoveNotifiObserver(x) [[NSNotificationCenter defaultCenter] removeObserver:x];
+
+#define Msg_Tip      @"Msg_Tip"
+#define ChangeCity   @"ChangeCity"
+#define Delete_Group @"delete_group"
+#define CityScroll   @"CityScroll"
+// 判断是否是iPhone X
+//#define iPhoneX (([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO) || ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1624), [[UIScreen mainScreen] currentMode].size) : NO))
+#define iPhoneX  [UIScreen mainScreen].bounds.size.height >= 812
+#define STATUS_BAR_HEIGHT (iPhoneX ? 44.f : 20.f)
+// 导航栏高度
+#define NAVIGATION_BAR_HEIGHT (iPhoneX ? 88.f : 64.f)
+// tabBar高度
+#define TAB_BAR_HEIGHT (iPhoneX ? (49.f+34.f) : 49.f)
+// home indicator
+#define HOME_INDICATOR_HEIGHT (iPhoneX ? 34.f : 0.f)
+
+
+
+
+#endif /* YouTo_pch */

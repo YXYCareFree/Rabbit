@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.strings
+  YouTo
+
+  Created by apple on 2018/11/6.
+  Copyright © 2018年 apple. All rights reserved.
+*/
+CFBundleDisplayName = "YouTo";
+NSPhotoLibraryUsageDescription = "游兔需要您的同意才能访问您的相册，才能发送和发布图片";
+NSMicrophoneUsageDescription = "游兔需要您的同意才能使用您的麦克风，才能发送语音";
+NSCameraUsageDescription = "游兔需要您的同意才能使用您的相机";
+NSLocationWhenInUseUsageDescription = "游兔需要您的同意才能使用您的位置信息,为您提供更好的城市服务";

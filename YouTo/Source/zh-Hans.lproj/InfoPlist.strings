@@ -1,0 +1,29 @@
+/* 
+  InfoPlist.strings
+  YouTo
+
+  Created by apple on 2018/11/6.
+  Copyright © 2018年 apple. All rights reserved.
+*/
+/*权限的国际化配置*/
+CFBundleDisplayName = "游兔";
+/*NSMicrophoneUsageDescription                  麦克风权限
+ 
+ NSCameraUsageDescription                         相机权限
+ 
+ NSPhotoLibraryUsageDescription                  相册权限
+ 
+ NSBluetoothPeripheralUsageDescription       蓝牙权限
+ 
+ NSSpeechRecognitionUsageDescription      语音转文字权限
+ 
+ NSCalendarsUsageDescription                      日历权限
+ 
+ NSLocationWhenInUseUsageDescription      定位权限
+ 
+ NSLocationAlwaysUsageDescription            定位权限
+*/
+NSPhotoLibraryUsageDescription = "游兔需要您的同意才能访问您的相册";
+NSMicrophoneUsageDescription = "游兔需要您的同意才能使用您的麦克风";
+NSCameraUsageDescription = "游兔需要您的同意才能使用您的相机";
+NSLocationWhenInUseUsageDescription = "游兔需要您的同意才能使用您的位置信息";
